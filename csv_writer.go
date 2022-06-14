@@ -41,6 +41,9 @@ func (w *CSVWriter) WriteCSV(results *KVs) error {
 		return err
 	}
 
+	// the oriHeader is equal to header but the type
+	// why not use header direct? because header is just a string
+	// the oriHeader is the type compatibility with results.kvs
 	oriHeader := results.GetSortMappingValues()
 	for _, result := range results.kvs {
 		if result.Len() > 0 { // Kv might have no data because it allocated memory ahead of time

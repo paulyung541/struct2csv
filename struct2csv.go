@@ -14,7 +14,6 @@ import (
 // to the custom of KeyType
 type HeaderConverter interface {
 	ConvertHeader(string) KeyType
-	Reset()
 }
 
 // compile time checks
@@ -101,8 +100,6 @@ func NewStructConverter(headerConv HeaderConverter, opts ...Option) (*StructConv
 
 // Convert converts Struct to CSV key value
 func (s *StructConverter) Convert(data interface{}) (*KVs, error) {
-	s.headerConv.Reset()
-
 	v := valueOf(data)
 	sliceIterator := func() error {
 		for i := 0; i < v.Len(); i++ {
@@ -164,11 +161,6 @@ func (s *StructConverter) Convert(data interface{}) (*KVs, error) {
 	}
 
 	return s.kvs, nil
-}
-
-func (s *StructConverter) Clear() {
-	s.kvs.Clear()
-	s.kvs = nil
 }
 
 func isObjectArray(obj interface{}) bool {

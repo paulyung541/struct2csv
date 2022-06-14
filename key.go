@@ -50,13 +50,6 @@ func (kvs *KVs) Reset() {
 	kvs.mapping = make(map[string]KeyType, kvs.preSize)
 }
 
-func (kvs *KVs) Clear() {
-	kvs.kvs = nil
-	kvs.mapping = nil
-	kvs.encodeHeaders = nil
-	kvs.unEncodeHeaders = nil
-}
-
 func (kvs *KVs) getKVElem(index int) *KeyValue {
 	return kvs.kvs[index]
 }
