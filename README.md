@@ -31,6 +31,7 @@ after the transformation, the header like follow
 ## speciality
 - support a struct or map slice convert to csv
 - supports header mapping to custom types
+- support protobuf struct
 
 ## how to use
 ```go
