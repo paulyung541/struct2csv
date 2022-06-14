@@ -46,7 +46,7 @@ func Converter(input []User) error {
         return err
     }
 
-    results, err := csvConv.Convert(input)
+    results, err := conv.Convert(input)
     if err != nil {
         return error
     }
